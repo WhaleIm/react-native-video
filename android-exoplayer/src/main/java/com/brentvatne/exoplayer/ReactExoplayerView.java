@@ -40,8 +40,8 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataOutput;
 import com.google.android.exoplayer2.source.BehindLiveWindowException;
+import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.source.MergingMediaSource;
 import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.source.SingleSampleMediaSource;
 import com.google.android.exoplayer2.source.TrackGroup;
@@ -380,7 +380,7 @@ class ReactExoplayerView extends FrameLayout implements
                         MediaSource[] textSourceArray = mediaSourceList.toArray(
                                 new MediaSource[mediaSourceList.size()]
                         );
-                        mediaSource = new MergingMediaSource(textSourceArray);
+                        mediaSource = new ConcatenatingMediaSource(textSourceArray);
                     }
 
                     boolean haveResumePosition = resumeWindow != C.INDEX_UNSET;
